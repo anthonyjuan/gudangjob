@@ -17,7 +17,7 @@ router.get('/projects', function(req, res) {
 
 })
 
-router.post('/projects' , function(req, res) {
+router.post('/projects/getdata' , function(req, res) {
   // res.send(JSON.stringify(req.body));
   let data = {
     nama: req.body.namaproject,
@@ -27,7 +27,7 @@ router.post('/projects' , function(req, res) {
 
   db.Project.create(data)
             .then(() => {
-              res.redirect('projects')
+              res.redirect('project')
             })
             .catch((err) => {
               res.send(err.message)

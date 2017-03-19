@@ -12,25 +12,31 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Projects', [{
-      nama: 'Website Ecommerce',
-      deskripsi: 'Saya ingin membuat website ecommerce untuk usaha lele saya, yang didalamnya bisa melakukan transaksi',
-      budget: 2000000,
+    return queryInterface.bulkInsert('ProjectProgrammers', [{
+      projectId:1,
+      programmerId:1,
+      status:false,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
-      nama: 'Aplikasi Android',
-      deskripsi: 'Saya ingin aplikasi, yang bisa membuat saya senang dan mengerti arti hidup ini',
-      budget: 15000000,
+      projectId:1,
+      programmerId:2,
+      status:false,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
-      nama: 'Company Profile Website',
-      deskripsi: 'Perlu Website company untuk, perusahaan susu milik keluarga saya',
-      budget: 5000000,
+      projectId:2,
+      programmerId:2,
+      status:false,
       createdAt: new Date(),
       updatedAt: new Date()
-    }], {});
+    },{
+      projectId:2,
+      programmerId:3,
+      status:false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }], {})
   },
 
   down: function (queryInterface, Sequelize) {
@@ -41,6 +47,5 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('Person', null, {});
     */
-    return queryInterface.bulkDelete('Projects', null, {});
   }
 };
