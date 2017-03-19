@@ -7,8 +7,8 @@
   <body>
     <h1> <%= title %> </h1>
 
-    <div id="form-tambah-project">
-      <form action="" method="post">
+    <!-- <div id="form-tambah-project">
+      <form action="/getdata" method="post" id="project-form">
         <label>
           Project Name
           <br>
@@ -18,7 +18,7 @@
         <label>
           Project Description
           <br>
-          <input type="text" name="deskripsiproject" value ="" >
+          <textarea name="deskripsiproject" placeholder=""></textarea>
         </label>
         <br>
         <label>
@@ -32,18 +32,20 @@
       </form>
     </div>
     <hr>
+    -->
     <table>
       <tr>
+        <th>No </th>
         <th>Project Name</th>
-        <th>Description</th>
-        <th>Budget</th>
       </tr>
+      <% let no = 1; %>
       <% projects.forEach(function(project){ %>
+
         <tr>
-          <td> <%= project.nama %> </td>
-          <td> <%= project.deskripsi %> </td>
-          <td> Rp. <%= project.budget %> </td>
+          <td><%= no %> </td>
+          <td> <%= project.name %> </td>
         </tr>
+      <% no += 1  %>
       <% }) %>
     </table>
 
