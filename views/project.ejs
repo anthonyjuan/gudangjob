@@ -7,5 +7,45 @@
   <body>
     <h1> <%= title %> </h1>
 
+    <div id="form-tambah-project">
+      <form action="" method="post">
+        <label>
+          Project Name
+          <br>
+          <input type="text" name="namaproject" value ="" >
+        </label>
+        <br>
+        <label>
+          Project Description
+          <br>
+          <input type="text" name="deskripsiproject" value ="" >
+        </label>
+        <br>
+        <label>
+          Budget
+          <br>
+          <input type="text" name="budgetproject" value ="" >
+          <br>
+        </label>
+        <br>
+        <button> submit </button>
+      </form>
+    </div>
+    <hr>
+    <table>
+      <tr>
+        <th>Project Name</th>
+        <th>Description</th>
+        <th>Budget</th>
+      </tr>
+      <% projects.forEach(function(project){ %>
+        <tr>
+          <td> <%= project.nama %> </td>
+          <td> <%= project.deskripsi %> </td>
+          <td> Rp. <%= project.budget %> </td>
+        </tr>
+      <% }) %>
+    </table>
+
   </body>
 </html>

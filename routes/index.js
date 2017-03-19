@@ -1,13 +1,39 @@
 var express = require('express');
 var router = express.Router();
-
+var db = require('../models');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express', content: 'Wassup dude' });
 });
 
 router.get('/projects', function(req, res) {
-  res.render('project', {title:'Project'});
+  db.Project.findAll()
+            .then((_projects) => {
+                res.render('project', {projects:_projects, title:'List of Projects'});
+            })
+            .catch((err) => {
+                res.send(err.message);
+            })
+
 })
+
+router.post('/projects' , function(req, res) {
+  // res.send(JSON.stringify(req.body));
+  let data = {
+    nama: req.body.namaproject,
+    deskripsi: req.body.deskripsiproject,
+    budget: req.body.budgetproject
+  }
+
+  db.Project.create(data)
+            .then(() => {
+              res.redirect('projects')
+            })
+            .catch((err) => {
+              res.send(err.message)
+            })
+})
+
+
 
 module.exports = router;
