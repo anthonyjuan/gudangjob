@@ -35,5 +35,15 @@ router.post('/projects/getdata' , function(req, res) {
 })
 
 
+router.get('/project/details/:id', function(req, res) {
+  db.Project.findById(req.params.id)
+            .then((_data) => {
+              res.render('project-details/index', {data:_data});
+            })
+            .catch((err) => {
+              res.redirect('/projects');
+            })
+})
+
 
 module.exports = router;

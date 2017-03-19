@@ -43,7 +43,7 @@
 
         <tr>
           <td><%= no %> </td>
-          <td> <%= project.name %> </td>
+          <td><a href="/project/details/<%= project.id %>"><%= project.name %></a></td>
         </tr>
       <% no += 1  %>
       <% }) %>
