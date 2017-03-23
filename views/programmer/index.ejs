@@ -2,12 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> Welcome Pogrammer </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-
+    <title>List of Programmer</title>
   </head>
   <body>
-    <h1>Welcome Programmer</h1>
-    <p>This site for Programmer Profile</p>
+    <h1>List untuk Pgrammer</h1>
+    <table>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Nama</td>
+          <td>Email</td>
+          <td>Phone</td>
+          <td>Skils</td>
+          <td>Address</td>
+          <td>Personal Site</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < programmer.length; i++) { %>
+        <tr>
+          <td><%= programmer[i].id %></td>
+          <td><%= programmer[i].name %></td>
+          <td><%= programmer[i].email %></td>
+          <td><%= programmer[i].phone %></td>
+          <td><%= programmer[i].skills %></td>
+          <td><%= programmer[i].address %></td>
+          <td><%= programmer[i].personal_site %></td>
+          <td><a href="/programmer/<%= programmer[i].id %>"><button type="button" name="button">VIEW</button></a></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
   </body>
 </html>
