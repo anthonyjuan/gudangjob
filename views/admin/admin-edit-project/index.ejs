@@ -8,28 +8,29 @@
   </head>
   <body>
     <h1>Form Add Project</h1>
+    <h3>TAMBAH PROJECT</h3>
     <div id="form-tambah-programmer">
-      <form action="/admin/projects/add-project" method="post">
+      <form action="/admin/projects/details/<%= data_project.id %>/edit-project" method="post">
         <label>
           Project Name
           <br>
-          <input type="text" name="namaproject" value ="" >
+          <input type="text" name="name" value="<%= data_project.name %>" >
         </label>
         <br>
         <label>
           Project Description
           <br>
-          <textarea name="deskripsiproject" placeholder=""></textarea>
+          <textarea name="description" placeholder="<%= data_project.description %>"></textarea>
         </label>
         <br>
         <label>
           Budget
           <br>
-          <input type="text" name="budgetproject" value ="" >
+          <input type="text" name="budget" value ="<%= data_project.budget %>" >
           <br>
         </label>
         <br>
-        <button> submit </button>
+        <button type="submit">Submit</butto n>
       </form>
     </div>
     <hr>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Project Details</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+  <body>
+    <h1>Project Details</h1>
+    <h3>GudangJOb</h3>
+    <p>Nama Project</p>
+      <p><%= data.name %></p>
+    <hr>
+    <p>Deskrips Project</p>
+      <p><%= data.description %></p>
+    <hr>
+    <a href="<%= data.id %>/edit-project"><button>Edit</button></a>
+    <a href="<%= data.id %>/delete-project" onclick="return confirm('Data Project akan di Hapus ?')"><button>Delete</button></a>
+
+  </body>
+</html>
