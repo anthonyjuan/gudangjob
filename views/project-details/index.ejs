@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Project Details</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
   </head>
   <body>
     <h1>Project Details</h1>
@@ -11,6 +13,8 @@
     <hr>
     <p>Deskrips Project</p>
       <p><%= data.description %></p>
+    <hr>
+    <a href="/projects/apply-form/<%= data.id %>"><button type="button" name="button">Apply !</button></a>
 
   </body>
 </html>

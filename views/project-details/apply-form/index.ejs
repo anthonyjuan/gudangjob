@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form apply</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+  <body>
+    <h1>Form Apply</h1>
+    <div id="form-tambah-project">
+      <form action="/projects/apply-form/<%= idproject %>" method="post">
+        <label>
+          Name:
+          <br>
+          <input type="text" name="nama" value ="" >
+        </label>
+        <br>
+        <label>
+          Email:
+          <br>
+          <textarea name="email" placeholder=""></textarea>
+        </label>
+        <br>
+        <label>
+          Phone:
+          <br>
+          <input type="text" name="phone" value ="" >
+          <br>
+        </label>
+        <br>
+        <label>
+          Skills:
+          <br>
+          <input type="text" name="skills" value ="" >
+          <br>
+        </label>
+        <br>
+        <label>
+          Address:
+          <br>
+          <input type="text" name="address" value ="" >
+          <br>
+        </label>
+        <br>
+        <label>
+          Personal Website:
+          <br>
+          <input type="text" name="personal_site" value ="" >
+          <br>
+        </label>
+        <br>
+        <button> submit </button>
+      </form>
+    </div>
+    <hr>
+
+  </body>
+</html>
