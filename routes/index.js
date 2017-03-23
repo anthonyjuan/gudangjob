@@ -9,7 +9,11 @@ router.get('/', function(req, res, next) {
 router.get('/projects', function(req, res) {
   db.Project.findAll()
             .then((_projects) => {
-                res.render('project', {projects:_projects, title:'List of Projects'});
+                db.ProjectProgrammer.findAll()
+                                    .then((_relations) => {
+                                        res.render('project', {projects:_projects,relations:_relations ,title:'List of Projects'});
+                                    })
+
             })
             .catch((err) => {
                 res.send(err.message);

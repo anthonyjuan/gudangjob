@@ -11,6 +11,15 @@ module.exports = function(sequelize, DataTypes) {
         ProjectProgrammer.belongsTo(models.Project, {foreignKey:'ProjectId'})
         ProjectProgrammer.belongsTo(models.Programmer, {foreignKey:'ProgrammerId'})
       }
+    },
+    instanceMethods: {
+      getJumlahPendaftar: function(project, relation) {
+        if(project.id == relation.ProjectId) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
     }
   });
   return ProjectProgrammer;

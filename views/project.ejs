@@ -8,44 +8,25 @@
   </head>
   <body>
     <h1> <%= title %> </h1>
-
-    <!-- <div id="form-tambah-project">
-      <form action="/getdata" method="post" id="project-form">
-        <label>
-          Project Name
-          <br>
-          <input type="text" name="namaproject" value ="" >
-        </label>
-        <br>
-        <label>
-          Project Description
-          <br>
-          <textarea name="deskripsiproject" placeholder=""></textarea>
-        </label>
-        <br>
-        <label>
-          Budget
-          <br>
-          <input type="text" name="budgetproject" value ="" >
-          <br>
-        </label>
-        <br>
-        <button> submit </button>
-      </form>
-    </div>
-    <hr>
-    -->
     <table>
       <tr>
         <th>No </th>
         <th>Project Name</th>
+        <th>Jumlah Pendaftar</th>
       </tr>
       <% let no = 1; %>
       <% projects.forEach(function(project){ %>
+      <%
+         let counter = 0;
+         relations.forEach((relation) => {
+           counter += relation.getJumlahPendaftar(project,relation)
+         })
+      %>
 
         <tr>
           <td><%= no %> </td>
           <td><a href="/projects/details/<%= project.id %>"><%= project.name %></a></td>
+          <td><%= counter %></td>
         </tr>
       <% no += 1  %>
       <% }) %>
