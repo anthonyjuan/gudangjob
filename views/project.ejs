@@ -3,56 +3,41 @@
   <head>
     <meta charset="utf-8">
     <title> <%= title %> </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
   </head>
   <body>
-    <h1> <%= title %> </h1>
 
-    <!-- <div id="form-tambah-project">
-      <form action="/getdata" method="post" id="project-form">
-        <label>
-          Project Name
-          <br>
-          <input type="text" name="namaproject" value ="" >
-        </label>
-        <br>
-        <label>
-          Project Description
-          <br>
-          <textarea name="deskripsiproject" placeholder=""></textarea>
-        </label>
-        <br>
-        <label>
-          Budget
-          <br>
-          <input type="text" name="budgetproject" value ="" >
-          <br>
-        </label>
-        <br>
-        <button> submit </button>
-      </form>
-    </div>
-    <hr>
-    -->
-    <table>
-      <tr>
-        <th>No </th>
-        <th>Project Name</th>
-      </tr>
-      <% let no = 1; %>
-      <% projects.forEach(function(project){ %>
+    <aside class="callout">
+        <div class="text-vertical-center">
+            <h1><%= title %></h1>
+        </div>
+    </aside>
+  <% projects.forEach(function(project){ %>
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2><%= project.name %></h2>
+                    <p class="lead"><%= project.description %></a>.</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+  <% }) %>
 
-        <tr>
-          <td><%= no %> </td>
-          <td><a href="/projects/details/<%= project.id %>"><%= project.name %></a></td>
-        </tr>
-      <% no += 1  %>
-      <% }) %>
-    </table>
-    <br>
-
-    <a href="/projects/add-project"><button type="button">Add Project</button></a>
+  <a href="/projects/add-project"><button type="button">Add Project</button></a>
 
 
 
