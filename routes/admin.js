@@ -30,7 +30,7 @@ router.get('/programmer', function(req, res, next) {
 
 // render projects
 router.get('/projects', function(req, res) {
-  db.Project.findAll()
+  db.Project.findAll({order:'id ASC'})
             .then((_projects) => {
               db.ProjectProgrammer.findAll()
                                   .then((_relations) => {

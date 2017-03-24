@@ -3,37 +3,51 @@
   <head>
     <meta charset="utf-8">
     <title>Form Add Project</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
 
   </head>
   <body>
-    <h1>Form Add Project</h1>
-    <h3>TAMBAH PROJECT</h3>
-    <div id="form-tambah-programmer">
-      <form action="/admin/projects/details/<%= data_project.id %>/edit-project" method="post">
-        <label>
-          Project Name
+<%- include ../../navbar %>
+    <div class="container">
+      <h1>Form Add Project</h1>
+      <h3>TAMBAH PROJECT</h3>
+      <div id="form-tambah-programmer">
+        <form action="/admin/projects/details/<%= data_project.id %>/edit-project" method="post">
+          <label>
+            Project Name
+            <br>
+            <input type="text" name="name" value="<%= data_project.name %>" >
+          </label>
           <br>
-          <input type="text" name="name" value="<%= data_project.name %>" >
-        </label>
-        <br>
-        <label>
-          Project Description
+          <label>
+            Project Description
+            <br>
+            <textarea name="description" value="<%= data_project.description %>"></textarea>
+          </label>
           <br>
-          <textarea name="description" placeholder="<%= data_project.description %>"></textarea>
-        </label>
-        <br>
-        <label>
-          Budget
+          <label>
+            Budget
+            <br>
+            <input type="text" name="budget" value ="<%= data_project.budget %>" >
+            <br>
+          </label>
           <br>
-          <input type="text" name="budget" value ="<%= data_project.budget %>" >
-          <br>
-        </label>
-        <br>
-        <button type="submit">Submit</butto n>
-      </form>
+          <button type="submit">Submit</butto n>
+        </form>
+      </div>
+      <hr>
     </div>
-    <hr>
+
 
   </body>
 </html>
