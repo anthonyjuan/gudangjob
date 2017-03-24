@@ -3,36 +3,49 @@
   <head>
     <meta charset="utf-8">
     <title>Project Details</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
 
   </head>
   <body>
-    <h1>Project Details</h1>
+    <%- include ../../navbar %>
+    <div class="container">
+      <h1>Project Details</h1>
 
-    <p>Nama Project</p>
-      <p><%= data.name %></p>
-    <hr>
-    <p>Deskrips Project</p>
-      <p><%= data.description %></p>
-    <hr>
-    <h3>Programmer terdaftar</h3>
-      <table border="1px" style="width:100%">
-        <th>Nama Programmer</th>
-        <th>Personal Site</th>
-        <th>Action</th>
+        <h3><%= data.name %></h3>
+      <hr>
+      <h3>Deskripsi Project :</h3>
+        <p class="lead"><%= data.description %></p>
+      <hr>
+      <h3>Programmer terdaftar</h3>
+        <table class="table" style="width:100%">
+          <th>Nama Programmer</th>
+          <th>Personal Site</th>
+          <th>Action</th>
 
-        <% programmers.forEach((programmer) => { %>
-          <tr>
-            <td><%= programmer.name %></td>
-            <td><%= programmer.personal_site %></td>
-            <td><a href="accept/<%= programmer.id %>">Accept</a></td>
+          <% programmers.forEach((programmer) => { %>
+            <tr>
+              <td><%= programmer.name %></td>
+              <td><%= programmer.personal_site %></td>
+              <td><a href="accept/<%= programmer.id %>">Accept</a></td>
 
-          </tr>
-        <% }) %>
-      </table>
-    <hr>
-    <a href="<%= data.id %>/edit-project"><button>Edit</button></a>
-    <a href="<%= data.id %>/delete-project" onclick="return confirm('Data Project akan di Hapus ?')"><button>Delete</button></a>
+            </tr>
+          <% }) %>
+        </table>
+      <hr>
+      <a href="<%= data.id %>/edit-project"><button class="btn">Edit</button></a>
+      <a href="<%= data.id %>/delete-project" onclick="return confirm('Data Project akan di Hapus ?')"><button class="btn">Delete</button></a>
+
+    </div>
 
   </body>
 </html>

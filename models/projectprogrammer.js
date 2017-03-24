@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
           let obj = {}
           obj.idProject = project.id
           obj.namaProject = project.name
+          obj.budget = project.budget
           relations.forEach((relation) => {
             if(relation.ProjectId == project.id) {
               counter += 1

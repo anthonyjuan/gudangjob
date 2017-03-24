@@ -3,7 +3,7 @@
   <head>
     <title><%= title %></title>
     <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
-<<<<<<< HEAD
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
@@ -18,6 +18,8 @@
   </head>
   <body>
 
+  <!-- <%- include('navbar',{menubar1 : {name:'admin',url:'/admin'}, menubar2 : {name:'public',url:'/projects'}}) %> -->
+
     <header id="top" class="header">
     <nav class="navbar">
       <div class="container-fluid">
@@ -26,12 +28,11 @@
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Programmer</a></li>
-          <li><a href="#">Admin</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/admin">Admin</a></li>
         </ul>
       </div>
-      </nav>
+    </nav>
         <div class="text-vertical-center">
             <h1>Gudang JOB</h1>
             <h3>Cari job, nggak pake Ribet !</h3>
@@ -132,31 +133,18 @@
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
+                                    <img class="img-rounded img-circle img-responsive" src="https://avatars0.githubusercontent.com/u/20969634?v=3&s=400">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
+                                    <img class="img-rounded img-circle img-responsive" src="https://avatars3.githubusercontent.com/u/19871120?v=3&s=460">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
-                                </a>
-                            </div>
-                        </div>
+
                     </div>
                     <!-- /.row (nested) -->
                     <!-- <a href="#" class="btn btn-dark">View More Items</a> -->
@@ -167,21 +155,39 @@
         </div>
         <!-- /.container -->
     </section>
-
-
-
-=======
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css">
-  </head>
-  <body>
-
->>>>>>> 35e915b1c041912aab499960d48e3b8f45919755
-    <a href="/programmer"><button type="button" name="button">Programmers</button></a>
-    <a href="/projects"><button type="button" name="button">Projects</button></a>
-    <a href="/admin"><button type="button" name="button">Admin</button></a>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <p> <%= content %> </p>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Start Gudang JOB</strong>
+                    </h4>
+                    <p>3481 Melrose Place
+                        <br>Kebon Jeruk, West Jakarta</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">ask@gudangjob.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; gudangjob.com 2017</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
 
   </body>
 </html>
