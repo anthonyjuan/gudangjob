@@ -2,13 +2,18 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css">
   </head>
   <body>
-    <a href="/programmer"><button type="button" name="button">Programmers</button></a>
-    <a href="/projects"><button type="button" name="button">Projects</button></a>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <p> <%= content %> </p>
+    <%- include('navbar', {title:'Gudang Job' , menubar1:{name:'admin',url:'/admin'}, menubar2:{name:'public',url:'/projects'}}) %>
+    <div class="container">
+
+      <!-- <a href="/admin"><button type="button" name="button">Admin</button></a>
+      <a href="/projects"><button type="button" name="button">Public</button></a> -->
+
+    </div>
+
   </body>
 </html>
+

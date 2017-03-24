@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title> <%= title %> </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css">
+
 
   </head>
   <body>
@@ -15,25 +16,18 @@
         <th>Jumlah Pendaftar</th>
       </tr>
       <% let no = 1; %>
-      <% projects.forEach(function(project){ %>
-      <%
-         let counter = 0;
-         relations.forEach((relation) => {
-           counter += relation.getJumlahPendaftar(project,relation)
-         })
-      %>
-
+      <% datas.forEach(function(data){ %>
         <tr>
           <td><%= no %> </td>
-          <td><a href="/projects/details/<%= project.id %>"><%= project.name %></a></td>
-          <td><%= counter %></td>
+          <td><a href="/projects/details/<%= data.idProject %>"><%= data.namaProject %></a></td>
+          <td><%= data.jumlahPendaftar %></td>
         </tr>
       <% no += 1  %>
       <% }) %>
     </table>
     <br>
 
-    <a href="/projects/add-project"><button type="button">Add Project</button></a>
+    <!-- <a href="/projects/add-project"><button type="button">Add Project</button></a> -->
 
 
 

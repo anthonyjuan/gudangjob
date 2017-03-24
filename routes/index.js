@@ -11,7 +11,8 @@ router.get('/projects', function(req, res) {
             .then((_projects) => {
                 db.ProjectProgrammer.findAll()
                                     .then((_relations) => {
-                                        res.render('project', {projects:_projects,relations:_relations ,title:'List of Projects'});
+                                        let _data = db.ProjectProgrammer.getJumlahPendaftar(_projects,_relations)
+                                        res.render('project', {datas:_data , title:'List of Projects'});
                                     })
 
             })
@@ -21,23 +22,23 @@ router.get('/projects', function(req, res) {
 
 })
 
-router.post('/projects/add-project' , function(req, res) {
-  // res.send(JSON.stringify(req.body));
-  let data = {
-    name: req.body.namaproject,
-    description: req.body.deskripsiproject,
-    budget: req.body.budgetproject
-  }
-
-
-  db.Project.create(data)
-            .then(() => {
-              res.redirect('/projects')
-            })
-            .catch((err) => {
-              res.send(err.message)
-            })
-})
+// router.post('/projects/add-project' , function(req, res) {
+//   // res.send(JSON.stringify(req.body));
+//   let data = {
+//     name: req.body.namaproject,
+//     description: req.body.deskripsiproject,
+//     budget: req.body.budgetproject
+//   }
+//
+//
+//   db.Project.create(data)
+//             .then(() => {
+//               res.redirect('/projects')
+//             })
+//             .catch((err) => {
+//               res.send(err.message)
+//             })
+// })
 
 router.get('/projects/details/:id', function(req, res) {
   db.Project.findById(req.params.id)
@@ -49,9 +50,9 @@ router.get('/projects/details/:id', function(req, res) {
             })
 })
 
-router.get('/projects/add-project', function(req, res) {
-  res.render('project-details/add-project');
-})
+// router.get('/projects/add-project', function(req, res) {
+//   res.render('project-details/add-project');
+// })
 
 router.get('/projects/apply-form/:idProject', function(req, res) {
   res.render('project-details/apply-form', {idproject: req.params.idProject});
