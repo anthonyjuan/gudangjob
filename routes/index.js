@@ -9,13 +9,19 @@ router.get('/', function(req, res, next) {
 router.get('/projects', function(req, res) {
   db.Project.findAll()
             .then((_projects) => {
-                res.render('project', {projects:_projects, title:'List of Projects'});
+                db.ProjectProgrammer.findAll()
+                                    .then((_relations) => {
+                                        let _data = db.ProjectProgrammer.getJumlahPendaftar(_projects,_relations)
+                                        res.render('project', {datas:_data , title:'List of Projects'});
+                                    })
+
             })
             .catch((err) => {
                 res.send(err.message);
             })
 
 })
+
 router.post('/projects/add-project' , function(req, res) {
   // res.send(JSON.stringify(req.body));
   let data = {
@@ -34,6 +40,7 @@ router.post('/projects/add-project' , function(req, res) {
             })
 })
 
+
 router.get('/projects/details/:id', function(req, res) {
   db.Project.findById(req.params.id)
             .then((_data) => {
@@ -44,9 +51,9 @@ router.get('/projects/details/:id', function(req, res) {
             })
 })
 
-router.get('/projects/add-project', function(req, res) {
-  res.render('project-details/add-project');
-})
+// router.get('/projects/add-project', function(req, res) {
+//   res.render('project-details/add-project');
+// })
 
 router.get('/projects/apply-form/:idProject', function(req, res) {
   res.render('project-details/apply-form', {idproject: req.params.idProject});

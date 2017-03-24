@@ -10,6 +10,16 @@ router.get('/', function(req, res, next) {
   })
 })
 
+router.get('/projects/details/accept/:idProgrammer', function(req, res) {
+  db.ProjectProgrammer.findOne({where: {ProgrammerId:req.params.idProgrammer}})
+                      .then((programmer) => {
+                        programmer.updateAttributes({status:true})
+                                  .then(() => {
+                                    res.redirect('/admin/projects')
+                                  })
+                      })
+})
+
 router.get('/programmer', function(req, res, next) {
   db.Programmer.findAll().then(function(_programmer) {
     res.render('admin/programmer', {programmer : _programmer})
@@ -22,7 +32,16 @@ router.get('/programmer', function(req, res, next) {
 router.get('/projects', function(req, res) {
   db.Project.findAll()
             .then((_projects) => {
-                res.render('admin/project', {projects:_projects, title:'List of Projects'});
+              db.ProjectProgrammer.findAll()
+                                  .then((_relations) => {
+                                    db.Programmer.findAll()
+                                                 .then((_programmers) => {
+                                                   let _datas = db.Project.getProjectStatus(_projects,_relations,_programmers);
+                                                   res.render('admin/project', {datas:_datas, title:'List of Projects'});
+
+                                                 })
+                                  })
+                // res.render('admin/project', {projects:_projects, title:'List of Projects'});
             })
             .catch((err) => {
                 res.send(err.message);
@@ -54,7 +73,16 @@ router.post('/projects/add-project' , function(req, res) {
 router.get('/projects/details/:id', function(req, res) {
   db.Project.findById(req.params.id)
             .then((_data) => {
-              res.render('admin/admin-project-details/index', {data:_data});
+              _data.getProgrammers()
+                   .then((_programmers) => {
+
+
+                      res.render('admin/admin-project-details/index', {data:_data, programmers: _programmers});
+                   })
+                   .catch((err) => {
+                     res.send(err.message);
+                   })
+
             })
             .catch((err) => {
               res.redirect('/projects');
