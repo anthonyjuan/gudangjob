@@ -13,13 +13,19 @@
       <tr>
         <th>No </th>
         <th>Project Name</th>
+        <th>Status Project</th>
       </tr>
       <% let no = 1; %>
-      <% projects.forEach(function(project){ %>
+      <% datas.forEach(function(data){ %>
 
         <tr>
           <td><%= no %> </td>
-          <td><a href="/admin/projects/details/<%= project.id %>"><%= project.name %></a></td>
+          <td><a href="/admin/projects/details/<%= data.idProject %>"><%= data.namaProject %></a></td>
+          <% if(data.statusProject == true) { %>
+            <td>Programmer untuk project ini adalah : <%= data.namaProgrammer %></td>
+          <% } else { %>
+            <td>Project ini belum menentukan programmer</td>
+          <% } %>
         </tr>
       <% no += 1  %>
       <% }) %>

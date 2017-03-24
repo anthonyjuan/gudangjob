@@ -2,12 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Admin Page</title>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css">
   </head>
   <body>
-    <a href="/admin/programmer"><button>Data Programmer</button></a>
-    <a href="/admin/projects"><button>Data Projects</button></a>
-    <h1>Admin Site</h1>
+    <%- include('../navbar', {title:'Gudang Job' , menubar1:{name:'admin',url:'/admin'}, menubar2:{name:'public',url:'/projects'}}) %>
+    <div class="container">
+      <h1>Admin Site</h1>
+      <a href="/admin/programmers"><button class="btn btn-primary" type="button">Programmers</button></a>
+      <a href="/admin/projects"><button class="btn btn-primary" type="button">Projects</button></a>
+    </div>
 
   </body>
 </html>
