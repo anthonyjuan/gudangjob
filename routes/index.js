@@ -18,7 +18,7 @@ router.get('/projects', function(req, res) {
 })
 
 router.post('/projects/getdata' , function(req, res) {
-  // res.send(JSON.stringify(req.body));
+  // res.send(JSON.stringify(req.body))
   let data = {
     nama: req.body.namaproject,
     deskripsi: req.body.deskripsiproject,
